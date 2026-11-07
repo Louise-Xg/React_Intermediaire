@@ -1,75 +1,42 @@
-# React + TypeScript + Vite
+# Fetch Employees
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Présentation du projet
 
-Currently, two official plugins are available:
+Cadre : Formation DWWM. Ce projet a été réalisé dans le cadre d'un apprentissage de React avec TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+L'objectif est de créer une petite application permettant d'afficher le profil d'un employé et de récupérer un nouveau profil à partir d'une API via un bouton.
 
-## React Compiler
+## Objectifs pédagogiques
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Ce projet permet de travailler les notions suivantes :
 
-## Expanding the ESLint configuration
+- utiliser `fetch` pour récupérer des données depuis une API;
+- utiliser une fonction `async`;
+- convertir une réponse en JSON avec `response.json()`;
+- stocker des données dans un state avec `useState`;
+- transmettre des données à un composant à l'aide des props;
+- mettre à jour l'affichage après la récupération de nouvelles données.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Fonctionnalités
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+L'application permet :
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- d'afficher le profil d'un employé;
+- d'afficher son prénom, son nom, sa photo et son adresse e-mail;
+- de récupérer un nouveau profil à partir de l'API Random User;
+- de mettre à jour le profil affiché;
+- de charger un nouveau profil à l'aide d'un bouton.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Technologies utilisées
 
-```
+- React
+- TypeScript
+- Vite
+- CSS
+- npm
+- API Random User
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Problèmes ou difficultés rencontrés
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- Compréhension de la différence entre les données initiales `sampleEmployee` et le state `employee`.
+- Erreur lors de l'affichage : le composant `EmployeeCard` recevait toujours `sampleEmployee` au lieu de `employee`, donc le profil ne se mettait pas à jour après l'appel à l'API.
